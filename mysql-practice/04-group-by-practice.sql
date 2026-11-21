@@ -9,6 +9,7 @@ FROM courses
 LEFT JOIN enrollments
     ON courses.course_id = enrollments.course_id
 GROUP BY courses.course_id, courses.course_name;
+
 SELECT courses.course_name,
        COUNT(enrollments.enrollment_id) AS enrollment_count
 FROM courses
