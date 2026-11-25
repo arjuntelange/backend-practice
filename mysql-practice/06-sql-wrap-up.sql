@@ -1,0 +1,25 @@
+USE mysql_practice;
+
+-- Filtering
+
+SELECT student_id, first_name, last_name 
+FROM students 
+WHERE first_name LIKE 'A%';
+
+SELECT student_id, first_name, last_name, city
+FROM students 
+WHERE city IN ("Mumbai", "Pune");
+
+SELECT enrollment_id, student_id, score 
+FROM enrollments 
+WHERE score BETWEEN 80 AND 95;
+
+SELECT student_id, first_name, city 
+FROM students 
+WHERE city IS NULL;
+
+-- Subquery
+
+SELECT * 
+FROM enrollments
+WHERE score > (SELECT AVG(score) FROM enrollments);
