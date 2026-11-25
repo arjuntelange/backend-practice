@@ -38,3 +38,21 @@ SELECT * FROM above_average;
 
 ALTER TABLE courses
 ADD CONSTRAINT chk_positive CHECK (fee > 0);
+
+-- Index
+
+CREATE INDEX idx 
+ON students (last_name);
+
+-- Transaction
+
+START TRANSACTION;
+
+USE mysql_practice;
+
+INSERT INTO students(first_name, last_name, email, city, joined_on) 
+VALUES ('Sanskruti', 'Ganje', 'sanskruti@example.com', 'Latur', '2007-04-03');
+
+SELECT * FROM students WHERE email = 'sanskruti@example.com';
+
+COMMIT;
