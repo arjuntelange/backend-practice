@@ -23,3 +23,18 @@ WHERE city IS NULL;
 SELECT * 
 FROM enrollments
 WHERE score > (SELECT AVG(score) FROM enrollments);
+
+-- CTE (Common Table Expression)
+
+WITH above_average As (
+    SELECT * 
+    FROM enrollments
+    WHERE score > (SELECT AVG(score) FROM enrollments)
+)
+
+SELECT * FROM above_average;
+
+-- Constraint
+
+ALTER TABLE courses
+ADD CONSTRAINT chk_positive CHECK (fee > 0);
